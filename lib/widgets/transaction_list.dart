@@ -23,11 +23,13 @@ class TransactionList extends StatelessWidget {
                   horizontal: 15,
                 ),
                 padding: EdgeInsets.all(10),
-                child: Text('\$ : ${transactions[idx].amount.toStringAsFixed(2)}', //90
+                child: Text(
+                    '\$ : ${transactions[idx].amount.toStringAsFixed(2)}',
+                    //90
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.purple)),
+                        fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor)),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 2)),
+                    border: Border.all(color: Theme.of(context).primaryColor, width: 2)),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

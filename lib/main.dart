@@ -9,7 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'Personal expenses',
+      theme: ThemeData( //94
+          primarySwatch: Colors.green,
+          accentColor: Colors.lightBlueAccent
+      ),
       home: MyHomePage(),
     );
   }
@@ -49,14 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(context: ctx, builder: (_) {
       return NewTransaction(_addTransaction);
-    }, );
+    },);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('Personal expenses'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
@@ -84,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, //91
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      //91
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => _startAddNewTransaction(context),

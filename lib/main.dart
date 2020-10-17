@@ -10,19 +10,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Personal expenses',
-      theme: ThemeData( //94
+      theme: ThemeData(
+          //94
           primarySwatch: Colors.green,
           accentColor: Colors.lightBlueAccent,
-          fontFamily: 'Quicksand', //95
-          appBarTheme: AppBarTheme( //95
-           textTheme: ThemeData.light().textTheme.copyWith(
-             headline6: TextStyle(
-               fontFamily: 'OpenSans',
-               fontSize: 20,
-               fontWeight: FontWeight.bold
-             )
-           )
-      )),
+          fontFamily: 'Quicksand',
+          //95
+          textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          appBarTheme: AppBarTheme(
+              //95
+              textTheme: ThemeData.light().textTheme.copyWith(
+                  headline6: TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)))),
       home: MyHomePage(),
     );
   }
@@ -34,7 +39,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final List<Transaction> _userTransactions = [
     Transaction(id: 't1', title: 'beer', amount: 69.99, date: DateTime.now()),
     Transaction(id: 't2', title: 'car', amount: 177.7, date: DateTime.now()),
@@ -60,9 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _startAddNewTransaction(BuildContext ctx) {
-    showModalBottomSheet(context: ctx, builder: (_) {
-      return NewTransaction(_addTransaction);
-    },);
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return NewTransaction(_addTransaction);
+      },
+    );
   }
 
   @override

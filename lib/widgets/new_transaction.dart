@@ -10,7 +10,6 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
@@ -18,7 +17,8 @@ class _NewTransactionState extends State<NewTransaction> {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 
-    if(enteredTitle.isEmpty || enteredAmount <= 0) { //90
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      //90
       return;
     }
 
@@ -48,9 +48,23 @@ class _NewTransactionState extends State<NewTransaction> {
               keyboardType: TextInputType.number, //90
               onSubmitted: (_) => submitData(), //90
             ),
-            FlatButton(
+            Container(
+              height: 70,
+              child: Row(
+                children: <Widget>[
+                  Text('No Date Chosen!'),
+                  FlatButton(
+                    textColor: Theme.of(context).primaryColor,
+                    child: Text('Choose Date', style: TextStyle(fontWeight: FontWeight.bold)),
+                    onPressed: () {},
+                  )
+                ],
+              ),
+            ),
+            RaisedButton(
                 onPressed: submitData,
-                textColor: Colors.purple,
+                color: Theme.of(context).primaryColor,
+                textColor: Theme.of(context).textTheme.button.color,
                 child: Text('Add transaction'))
           ],
         ),
